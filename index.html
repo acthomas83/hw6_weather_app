@@ -1,68 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Weathered</title>
-  </head>
-  <body>
-    <div class="container px-lg-5">
-      <div class="row">
-        <h1>Weathered</h1>
-      </div>
-      <div class="row mx-lg-n5">
-        <div class="col-4 py-3 px-lg-5 border bg-light">
-          <input id="user-input" type="text" placeholder="City Name" />
-          <button id="search-btn">Search</button>
-        </div>
 
-        <div class="col-8 py-3 px-lg-5 border bg-light">
-          <div class="list-group">
-            <div
-              id="city"
-              href="#"
-              class="list-group-item list-group-item-action active">
-            </div>
-            <div
-              id="date"
-              href="#"
-              class="list-group-item list-group-item-action active">
-            </div>
-            <!-- <div> id="date" href="#" class="list-group-item list-group-item-action"</div> -->
-            <div id="temp" href="#" class="list-group-item list-group-item-action">
-              Temp:
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Weathered</title>
+</head>
+
+<body>
+  <div class="container px-lg-5">
+    <div class="row">
+      <h1>Weathered</h1>
+    </div>
+    <div class="row mx-lg-n5">
+      <div class="col-4 py-3 px-lg-5 border bg-light">
+        <input id="user-input" type="text" placeholder="City Name" />
+        <button id="search-btn">Search</button>
+        <br /><br />
+        <ul class="list-group">
+          <li id="history-1" class="list-group-item disabled" aria-disabled="true"></li>
+          <li id="history-2" class="list-group-item"></li>
+          <li id="history-3" class="list-group-item"></li>
+          <li id="history-4" class="list-group-item"></li>
+          <li id="history-5" class="list-group-item"></li>
+        </ul>
+      </div>
+      <!-- </div> -->
+
+      <div class="col-6 py-3 px-lg-5 border bg-light">
+        <div class="list-group">
+          <div id="city" href="#" class="list-group-item list-group-item-action active"></div>
+          <div id="date" href="#" class="list-group-item list-group-item-action active"></div>
+          <!-- <div> id="date" href="#" class="list-group-item list-group-item-action"</div> -->
+          <div id="temp" href="#" class="list-group-item list-group-item-action">
+            <!-- Temp: -->
           </div>
-            <div
-              id="humidity"
-              href="#"
-              class="list-group-item list-group-item-action">
-              Humidity:
+          <div id="humidity" href="#" class="list-group-item list-group-item-action">
+            <!-- Humidity: -->
           </div>
-            <div
-              id="windspeed"
-              href="#"
-              class="list-group-item list-group-item-action disabled">
-              Windspeed: 
+          <div id="windspeed" href="#" class="list-group-item list-group-item-action disabled">
+            <!-- Windspeed:  -->
           </div>
           <!-- <div id="current-weather" class="card"></div>  
           <div id="time" class="card"></div> -->
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="moment.js"></script>
-    <script src="main.js" defer></script>
-    <script
-      type="text/javascript"
-      src="http://code.jquery.com/jquery-1.7.1.min.js"
-    ></script>
-  </body>
+  <script src="moment.js"></script>
+  <script src="main.js" defer></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</body>
+
 </html>

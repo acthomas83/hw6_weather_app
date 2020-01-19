@@ -41,6 +41,7 @@ $("#search-btn").on("click", function() {
     $("#weather-icon").append(conditionsIcon);
     console.log(conditionsIcon);
     
+    console.log("Welcome to " + response.name);
     console.log("Temp: " + response.main.temp);
     console.log("Humidity: " + response.main.humidity);
     console.log("Wind Speed: " + response.wind.speed);
@@ -56,11 +57,19 @@ function temperatureConverter(valNum) {
 console.log($(temperatureConverter));
   // console.log(temo);
 
-  $("#city").text(JSON.stringify(response.sys.name));
+  $("#city").text(JSON.stringify(response.name));
     $("#temp").text(JSON.stringify("Temp: " + response.main.temp));
     $("#humidity").text(JSON.stringify("Humidity: " + response.main.humidity));
     $("#windspeed").text(JSON.stringify("Wind Speed: " + response.wind.speed + "mph"));
 
+    // HISTORY LIST
+    var historyOne = document.getElementById("history-1");
+    var historyTwo = document.getElementById("history-2");
+    var historyThree = document.getElementById("history-3");
+    var historyFour = document.getElementById("history-4");
+    var historyFive = document.getElementById("history-5");
+
+    
 
     // Retrieves the release year
 
