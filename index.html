@@ -14,25 +14,55 @@
     <title>Weathered</title>
   </head>
   <body>
-      <div class="container px-lg-5">
-        <div class="row">
-          <h1>Weathered</h1>
-        </div>
+    <div class="container px-lg-5">
+      <div class="row">
+        <h1>Weathered</h1>
+      </div>
       <div class="row mx-lg-n5">
         <div class="col-4 py-3 px-lg-5 border bg-light">
-          <input id="user-input" type="text" placeholder="City Name"/>
+          <input id="user-input" type="text" placeholder="City Name" />
           <button id="search-btn">Search</button>
         </div>
 
         <div class="col-8 py-3 px-lg-5 border bg-light">
-          <div id="current-weather" class="card"></div>  
-          <div id="time" class="card"></div>
+          <div class="list-group">
+            <div
+              id="city"
+              href="#"
+              class="list-group-item list-group-item-action active">
+            </div>
+            <div
+              id="date"
+              href="#"
+              class="list-group-item list-group-item-action active">
+            </div>
+            <!-- <div> id="date" href="#" class="list-group-item list-group-item-action"</div> -->
+            <div id="temp" href="#" class="list-group-item list-group-item-action">
+              Temp:
+          </div>
+            <div
+              id="humidity"
+              href="#"
+              class="list-group-item list-group-item-action">
+              Humidity:
+          </div>
+            <div
+              id="windspeed"
+              href="#"
+              class="list-group-item list-group-item-action disabled">
+              Windspeed: 
+          </div>
+          <!-- <div id="current-weather" class="card"></div>  
+          <div id="time" class="card"></div> -->
         </div>
       </div>
     </div>
-    
+
     <script src="moment.js"></script>
     <script src="main.js" defer></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
   </body>
 </html>

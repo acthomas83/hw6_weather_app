@@ -18,8 +18,8 @@ $("#search-btn").on("click", function() {
   localStorage.setItem("City", currentCity);
   console.log(localStorage.setItem("City", currentCity));
 
-  var div1 = document.getElementById("current-weather");
-  div1.innerHTML += "Hello, " + currentCity + "!";
+  // var div1 = document.getElementById("current-weather");
+  // div1.innerHTML += "Hello, " + currentCity + "!";
   // add attributes to the save buttons
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -27,7 +27,7 @@ $("#search-btn").on("click", function() {
     "&appid=4b0342f3707425c92eb021e9050a8450";
   // });
 
-  var div2 = document.getElementById("time");
+  var div2 = document.getElementById("date");
   div2.innerHTML += "Today is " + day + ", " + date;
   // div.innerHTML += "Hello, " + currentCity;
 
@@ -40,10 +40,28 @@ $("#search-btn").on("click", function() {
     var conditionsIcon = $(response.weather[0].icon);
     $("#weather-icon").append(conditionsIcon);
     console.log(conditionsIcon);
+    
+    console.log("Temp: " + response.main.temp);
+    console.log("Humidity: " + response.main.humidity);
+    console.log("Wind Speed: " + response.wind.speed);
+    // console.log("UV Index: " + response.main.humidity);
+
+  var kTemp = $(response.main.temp);
+  kTemp="temperatureConverter(this.value)"
+// Convert Kelvin to Fahrenheit
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("temp").innerHTML=((valNum-273.15)*1.8)+32;
+}
+console.log($(temperatureConverter));
+  // console.log(temo);
+
+  $("#city").text(JSON.stringify(response.sys.name));
+    $("#temp").text(JSON.stringify("Temp: " + response.main.temp));
+    $("#humidity").text(JSON.stringify("Humidity: " + response.main.humidity));
+    $("#windspeed").text(JSON.stringify("Wind Speed: " + response.wind.speed + "mph"));
 
 
-
-    // $(".movie-data").text(JSON.stringify(response.Rated));
     // Retrieves the release year
 
     // Creates an element to hold the release year
