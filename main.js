@@ -14,17 +14,19 @@ currentDate.innerHTML += "Today is " + day + ", " + date;
 
 var cityArr = [];
 
-$("#search-btn").on("click", function() {
-  var currentCity = $("input").val();
-  cityArr.push(currentCity);
+var historyCities = JSON.parse(window.localStorage.getItem("City"));
 
-  console.log(currentCity);
+if(historyCities != null){
+  cityArr = historyCities
+}
 
-  localStorage.setItem("City", JSON.stringify(cityArr));
+for (var i = 0; i < historyCities.length; i++) {
+  var li = $("<li>").addClass("list-group-item");
+  li.text(historyCities[i]);
+  $("#history-1").append(li);
+}
 
-  // var div1 = document.getElementById("current-weather");
-  // div1.innerHTML += "Hello, " + currentCity + "!";
-  // add attributes to the save buttons
+function weatherSearch(currentCity){
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     currentCity +
@@ -74,16 +76,41 @@ $("#search-btn").on("click", function() {
     // humidityReturn.innerHTML += "Humidity: " + response.main.humidity;
     // var windReturn = document.getElementById("windspeed");
     // windReturn.innerHTML += "Wind Speed: " + response.wind.speed;
+  })
+}
 
-    // HISTORY LIST
-    var historyOne = document.getElementById("history-1");
-    var historyTwo = document.getElementById("history-2");
-    var historyThree = document.getElementById("history-3");
-    var historyFour = document.getElementById("history-4");
-    var historyFive = document.getElementById("history-5");
+function fiveDaySearch(currentCity){
+
+}
+
+$(document).on("click", ".list-group-item", function(){
+  console.log($(this).text());
+  let city = $(this).text()
+
+  weatherSearch(city)
+  fiveDaySearch(city)
+})
+
+$("#search-btn").on("click", function() {
+  var currentCity = $("input").val();
+  cityArr.push(currentCity);
+
+  console.log(currentCity);
+
+  weatherSearch(currentCity)
+
+  localStorage.setItem("City", JSON.stringify(cityArr));
+
+  // var div1 = document.getElementById("current-weather");
+  // div1.innerHTML += "Hello, " + currentCity + "!";
+  // add attributes to the save buttons
+
 
     var history = JSON.parse(window.localStorage.getItem("City"));
-console.log(history);
+    console.log(history);
+
+    $("#history-1").empty();
+
     for (var i = 0; i < history.length; i++) {
       var li = $("<li>").addClass("list-group-item");
       li.text(history[i]);
@@ -95,5 +122,4 @@ console.log(history);
 
     // Creates an element to hold the release year
     // $(".movie-data").text(JSON.stringify(response.Released));
-  });
 });
